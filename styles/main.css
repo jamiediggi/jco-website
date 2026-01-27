@@ -2,8 +2,8 @@
    JAMIE CLARKE ONLINE - Design System
    ============================================ */
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+/* Google Fonts Import - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap');
 
 /* ============================================
    CSS Variables - Design Tokens
@@ -37,8 +37,8 @@
   --accent-orange-dark: #F97316;
 
   /* Typography */
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -117,23 +117,24 @@ body {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--black);
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: var(--text-5xl); }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); }
-h5 { font-size: var(--text-xl); }
-h6 { font-size: var(--text-lg); }
+h1 { font-size: var(--text-5xl); font-weight: 800; }
+h2 { font-size: var(--text-4xl); font-weight: 700; }
+h3 { font-size: var(--text-3xl); font-weight: 700; }
+h4 { font-size: var(--text-2xl); font-weight: 600; }
+h5 { font-size: var(--text-xl); font-weight: 600; }
+h6 { font-size: var(--text-lg); font-weight: 600; }
 
 /* Display heading for hero */
 .display {
   font-size: var(--text-6xl);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 p {
@@ -167,7 +168,7 @@ img {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-10);
 }
 
 .container-narrow {
@@ -378,25 +379,28 @@ section {
   background: var(--red);
   color: var(--white);
   box-shadow: var(--shadow-red);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .btn-primary:hover {
   background: var(--red-dark);
   color: var(--white);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(190, 30, 45, 0.25);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(190, 30, 45, 0.3);
 }
 
 .btn-secondary {
   background: var(--white);
   color: var(--black);
   box-shadow: var(--shadow-md);
+  font-weight: 600;
 }
 
 .btn-secondary:hover {
   color: var(--black);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-pop);
 }
 
 .btn-outline {
@@ -588,15 +592,15 @@ section {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--red);
   background: var(--red-light);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-5);
   border-radius: var(--radius-full);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 /* Section Headers */
@@ -713,23 +717,23 @@ section {
 }
 
 .colorful-card.orange {
-  background: var(--accent-orange);
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #FED7AA 100%);
 }
 
 .colorful-card.blue {
-  background: var(--accent-blue);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #BFDBFE 100%);
 }
 
 .colorful-card.green {
-  background: var(--accent-green);
+  background: linear-gradient(135deg, var(--accent-green) 0%, #A7F3D0 100%);
 }
 
 .colorful-card.yellow {
-  background: var(--accent-yellow);
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, #FDE68A 100%);
 }
 
 .colorful-card.purple {
-  background: var(--accent-purple);
+  background: linear-gradient(135deg, var(--accent-purple) 0%, #DDD6FE 100%);
 }
 
 .colorful-card .card-icon {
@@ -815,19 +819,23 @@ section {
   pointer-events: none;
 }
 
-/* Star decoration */
-.decorative-star {
+/* Floating blob decoration */
+.decorative-blob {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  opacity: 0.6;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+  opacity: 0.15;
   pointer-events: none;
-  animation: twinkle 2s ease-in-out infinite;
+  filter: blur(40px);
+  animation: blob-float 8s ease-in-out infinite;
 }
 
-@keyframes twinkle {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
+@keyframes blob-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 10px) scale(0.95); }
 }
 
 /* Floating decorations container */
@@ -950,21 +958,25 @@ textarea.form-input {
 
 .hero-headline {
   font-size: clamp(2.5rem, 5vw, var(--text-6xl));
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: var(--space-6);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .hero-headline em {
   font-style: italic;
   color: var(--red);
+  font-weight: 700;
 }
 
 .hero-subheadline {
   font-size: var(--text-xl);
-  color: var(--grey-medium);
+  color: var(--grey-dark);
   margin-bottom: var(--space-8);
-  max-width: 500px;
+  max-width: 520px;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .hero-ctas {
@@ -1197,8 +1209,32 @@ textarea.form-input {
    PCJ Section (Dark)
    ============================================ */
 .pcj-section {
-  background: var(--black);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
   color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.pcj-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(190, 30, 45, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pcj-section::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(96, 197, 232, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .pcj-section .section-label {
@@ -1222,16 +1258,20 @@ textarea.form-input {
 }
 
 .pcj-stage {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  padding: var(--space-8);
   transition: var(--transition-base);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
 .pcj-stage:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-6px);
+  border-color: rgba(190, 30, 45, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .pcj-stage-number {
@@ -1329,9 +1369,33 @@ textarea.form-input {
    CTA Section
    ============================================ */
 .cta-section {
-  background: var(--red);
+  background: linear-gradient(135deg, var(--red) 0%, #c91e2e 50%, var(--red-dark) 100%);
   color: var(--white);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .cta-section .section-label {
@@ -1536,8 +1600,9 @@ textarea.form-input {
    ============================================ */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(50px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-on-scroll.visible {
@@ -1556,18 +1621,85 @@ textarea.form-input {
 /* Fade in from different directions */
 .fade-in-left {
   opacity: 0;
-  transform: translateX(-40px);
+  transform: translateX(-60px);
 }
 
 .fade-in-right {
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateX(60px);
 }
 
 .fade-in-left.visible,
 .fade-in-right.visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Scale up animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Rotate in animation */
+.rotate-in {
+  opacity: 0;
+  transform: rotate(-5deg) translateY(30px);
+}
+
+.rotate-in.visible {
+  opacity: 1;
+  transform: rotate(0) translateY(0);
+}
+
+/* Blur in animation */
+.blur-in {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+}
+
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* Continuous floating animation */
+.float-animation {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Pulse animation for CTAs */
+.pulse-hover:hover {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Gradient shift animation */
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-move 8s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ============================================
@@ -1915,7 +2047,17 @@ textarea.form-input {
 /* ============================================
    Responsive Design
    ============================================ */
+
+/* Tablet Landscape (iPad) */
 @media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--space-12);
+  }
+
+  section {
+    padding: 100px 0;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: var(--space-12);
@@ -1927,6 +2069,10 @@ textarea.form-input {
 
   .hero-image-wrapper {
     justify-content: center;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   }
 
   .guide-inner {
@@ -1949,9 +2095,14 @@ textarea.form-input {
 
   .footer-inner {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
   }
 
-  .help-cards,
+  .help-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
   .pcj-stages {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1959,14 +2110,34 @@ textarea.form-input {
   .deliverables-list {
     grid-template-columns: 1fr;
   }
+
+  .colorful-card {
+    padding: 32px;
+  }
+
+  .stakes-grid {
+    gap: var(--space-6);
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 900px) {
+  .help-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+
   section {
     padding: var(--section-padding-mobile) 0;
   }
 
-  h1 { font-size: var(--text-4xl); }
+  h1 { font-size: var(--text-4xl); font-weight: 800; }
   h2 { font-size: var(--text-3xl); }
   h3 { font-size: var(--text-2xl); }
 
@@ -2060,6 +2231,14 @@ textarea.form-input {
   .pcj-stage-labels {
     flex-direction: row;
     gap: var(--space-4);
+  }
+
+  .colorful-card {
+    padding: 28px;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-10);
   }
 }
 
