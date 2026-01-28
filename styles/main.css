@@ -109,9 +109,29 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--grey-dark);
-  background-color: var(--cream);
+  background-color: #e8e6e1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Boxed Site Layout
+   ============================================ */
+.site-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--cream);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  min-height: 100vh;
+}
+
+@media (min-width: 1440px) {
+  .site-wrapper {
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    margin-top: 0;
+    overflow: hidden;
+  }
 }
 
 /* Headings */
@@ -231,17 +251,23 @@ section {
    Navigation
    ============================================ */
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(250, 249, 246, 0.9);
+  background: rgba(250, 249, 246, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: var(--space-4) 0;
   transition: var(--transition-base);
+}
+
+@media (min-width: 1440px) {
+  .nav {
+    border-radius: 0;
+  }
 }
 
 .nav.scrolled {
@@ -255,15 +281,27 @@ section {
 }
 
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--black);
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 
-.nav-logo:hover {
-  color: var(--red);
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  transition: var(--transition-base);
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.05);
+}
+
+/* Footer logo */
+.footer-logo-img {
+  height: 36px;
+  width: auto;
+  margin-bottom: var(--space-4);
+  filter: brightness(0) invert(1);
 }
 
 .nav-links {
@@ -701,7 +739,7 @@ section {
 }
 
 /* ============================================
-   Colorful Cards (Full Background)
+   Colorful Cards (Full Background) - Playful Offset Style
    ============================================ */
 .colorful-card {
   border-radius: var(--radius-xl);
@@ -711,9 +749,33 @@ section {
   overflow: hidden;
 }
 
+/* Playful offset positions for cards */
+.help-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.help-cards .colorful-card:nth-child(1) {
+  transform: rotate(-2deg);
+  margin-top: 20px;
+}
+
+.help-cards .colorful-card:nth-child(2) {
+  transform: rotate(1deg);
+  margin-top: 0;
+}
+
+.help-cards .colorful-card:nth-child(3) {
+  transform: rotate(-1deg);
+  margin-top: 40px;
+}
+
 .colorful-card:hover {
-  transform: translateY(-8px) rotate(-1deg);
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
   box-shadow: var(--shadow-pop);
+  z-index: 2;
 }
 
 .colorful-card.orange {
@@ -920,7 +982,7 @@ textarea.form-input {
    Hero Section
    ============================================ */
 .hero {
-  padding-top: calc(80px + var(--section-padding));
+  padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
   position: relative;
   overflow: hidden;
@@ -1250,12 +1312,21 @@ textarea.form-input {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Playful PCJ stages with offset */
 .pcj-stages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
   margin-bottom: var(--space-12);
+  align-items: start;
 }
+
+.pcj-stage:nth-child(1) { transform: rotate(-1deg); margin-top: 0; }
+.pcj-stage:nth-child(2) { transform: rotate(1deg); margin-top: 30px; }
+.pcj-stage:nth-child(3) { transform: rotate(-0.5deg); margin-top: 10px; }
+.pcj-stage:nth-child(4) { transform: rotate(0.5deg); margin-top: 20px; }
+.pcj-stage:nth-child(5) { transform: rotate(-1deg); margin-top: 0; }
+.pcj-stage:nth-child(6) { transform: rotate(1deg); margin-top: 40px; }
 
 .pcj-stage {
   background: rgba(255, 255, 255, 0.03);
@@ -1308,10 +1379,25 @@ textarea.form-input {
   background: var(--white);
 }
 
+/* Playful stakes grid with offset */
 .stakes-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-8);
+  align-items: start;
+}
+
+.stakes-card.without {
+  transform: rotate(-1deg);
+}
+
+.stakes-card.with {
+  transform: rotate(1deg);
+  margin-top: 30px;
+}
+
+.stakes-card:hover {
+  transform: rotate(0) translateY(-5px);
 }
 
 .stakes-card {
@@ -1706,7 +1792,7 @@ textarea.form-input {
    Page Headers (for inner pages)
    ============================================ */
 .page-header {
-  padding-top: calc(80px + var(--section-padding));
+  padding-top: var(--section-padding);
   padding-bottom: var(--space-16);
   background: var(--cream);
   text-align: center;
