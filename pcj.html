@@ -52,11 +52,13 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="page-header">
+  <section class="page-header has-decorations">
+    <div class="decorative-blob" style="top: -80px; right: -100px; background: linear-gradient(135deg, #EDE9FE 0%, #8B5CF6 100%);"></div>
+    <div class="decorative-blob" style="bottom: -60px; left: -120px; background: linear-gradient(135deg, #DBEAFE 0%, #60C5E8 100%); animation-delay: -3s;"></div>
     <div class="container">
       <div class="animate-on-scroll">
         <span class="section-label">The Framework</span>
-        <h1>The Perfect Customer Journey</h1>
+        <h1>The <span class="highlight-marker">Perfect</span> Customer Journey</h1>
         <p>A simple 6-stage framework that turns strangers into fans — and fans into your best source of new business.</p>
         <div class="hero-ctas mt-8" style="justify-content: center;">
           <a href="freebies.html" class="btn btn-primary">Get the Free Guide</a>
@@ -118,114 +120,230 @@
     </div>
   </section>
 
-  <!-- The 6 Stages Section -->
-  <section style="background: var(--white);">
+  <!-- The 6 Stages Section - Interactive -->
+  <section style="background: var(--white);" class="journey-section">
     <div class="container">
       <div class="section-header center animate-on-scroll">
         <span class="section-label">The Framework</span>
-        <h2 class="section-title">The 6 Stages</h2>
-        <p class="section-subtitle">Each stage builds on the last. Skip one, and the whole thing breaks down.</p>
+        <h2 class="section-title">The <span class="wavy-underline">6 Stages</span></h2>
+        <p class="section-subtitle">Click each stage to explore the journey. Each one builds on the last.</p>
       </div>
 
-      <!-- Stage 1 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">1</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+      <div class="journey-container animate-on-scroll">
+        <!-- Journey Navigation Tabs -->
+        <div class="journey-tabs" id="journeyTabs">
+          <div class="journey-tab active" data-stage="1">
+            <span class="journey-tab-number">1</span>
+            <span class="journey-tab-title">Get<br>Noticed</span>
+          </div>
+          <div class="journey-tab" data-stage="2">
+            <span class="journey-tab-number">2</span>
+            <span class="journey-tab-title">Connect</span>
+          </div>
+          <div class="journey-tab" data-stage="3">
+            <span class="journey-tab-number">3</span>
+            <span class="journey-tab-title">Nurture</span>
+          </div>
+          <div class="journey-tab" data-stage="4">
+            <span class="journey-tab-number">4</span>
+            <span class="journey-tab-title">Convert</span>
+          </div>
+          <div class="journey-tab" data-stage="5">
+            <span class="journey-tab-number">5</span>
+            <span class="journey-tab-title">Deliver<br>& Wow</span>
+          </div>
+          <div class="journey-tab" data-stage="6">
+            <span class="journey-tab-number">6</span>
+            <span class="journey-tab-title">Create<br>Fans</span>
           </div>
         </div>
-        <div class="pcj-stage-detail">
-          <h3>Get Noticed</h3>
-          <p class="stage-subtitle">Get visible to the right people / They discover you exist</p>
-          <p>You can't sell to people who don't know you exist. This stage is about showing up where your ideal customers are — with a message that makes them pay attention.</p>
-          <p>This isn't about being everywhere. It's about being in the right places, with the right message, for the right people.</p>
-        </div>
-      </div>
 
-      <!-- Stage 2 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">2</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+        <!-- Journey Content Panels -->
+        <div class="journey-panels" id="journeyPanels">
+          <!-- Stage 1 Panel -->
+          <div class="journey-panel active" data-stage="1">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">1</span>
+                  <span class="journey-panel-label">Stage One</span>
+                </div>
+                <h3 class="journey-panel-title">Get Noticed</h3>
+                <p class="journey-panel-subtitle">You: Get visible to the right people<br>They: Discover you exist</p>
+                <div class="journey-panel-text">
+                  <p>You can't sell to people who don't know you exist. This stage is about showing up where your ideal customers are — with a message that makes them pay attention.</p>
+                  <p>This isn't about being everywhere. It's about being in the <strong>right places</strong>, with the <strong>right message</strong>, for the <strong>right people</strong>.</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card orange">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--accent-orange-dark)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Visibility</h4>
+                  <p class="journey-visual-desc">Be seen by the people who need you most</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="pcj-stage-detail">
-          <h3>Connect</h3>
-          <p class="stage-subtitle">Get permission to follow up / They give you their details</p>
-          <p>Attention is worthless if it disappears. This stage is about turning a moment of interest into an ongoing relationship.</p>
-          <p>You offer something valuable — a guide, a tool, a resource — in exchange for permission to stay in touch. Now you're not relying on algorithms. You can reach them directly.</p>
-        </div>
-      </div>
 
-      <!-- Stage 3 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">3</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+          <!-- Stage 2 Panel -->
+          <div class="journey-panel" data-stage="2">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">2</span>
+                  <span class="journey-panel-label">Stage Two</span>
+                </div>
+                <h3 class="journey-panel-title">Connect</h3>
+                <p class="journey-panel-subtitle">You: Get permission to follow up<br>They: Give you their details</p>
+                <div class="journey-panel-text">
+                  <p>Attention is worthless if it disappears. This stage is about turning a moment of interest into an ongoing relationship.</p>
+                  <p>You offer something valuable — a guide, a tool, a resource — in exchange for <strong>permission to stay in touch</strong>. Now you're not relying on algorithms. You can reach them directly.</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card blue">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--accent-blue-dark)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Permission</h4>
+                  <p class="journey-visual-desc">Turn attention into a relationship</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="pcj-stage-detail">
-          <h3>Nurture</h3>
-          <p class="stage-subtitle">Build trust and demonstrate value / They start to believe you can help</p>
-          <p>Just because someone gave you their email doesn't mean they trust you. Not yet.</p>
-          <p>This stage is about proving your worth. Showing up consistently. Helping before you ask for anything. Building the kind of trust that makes buying feel like the obvious next step.</p>
-        </div>
-      </div>
 
-      <!-- Stage 4 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">4</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+          <!-- Stage 3 Panel -->
+          <div class="journey-panel" data-stage="3">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">3</span>
+                  <span class="journey-panel-label">Stage Three</span>
+                </div>
+                <h3 class="journey-panel-title">Nurture</h3>
+                <p class="journey-panel-subtitle">You: Build trust and demonstrate value<br>They: Start to believe you can help</p>
+                <div class="journey-panel-text">
+                  <p>Just because someone gave you their email doesn't mean they trust you. Not yet.</p>
+                  <p>This stage is about <strong>proving your worth</strong>. Showing up consistently. Helping before you ask for anything. Building the kind of trust that makes buying feel like the obvious next step.</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card green">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--accent-green-dark)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Trust</h4>
+                  <p class="journey-visual-desc">Prove your value before you ask for anything</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="pcj-stage-detail">
-          <h3>Convert</h3>
-          <p class="stage-subtitle">Ask for the sale / They become a paying customer</p>
-          <p>This is the moment of truth. But if you've done the previous stages well, it shouldn't feel like a hard sell.</p>
-          <p>You're not pushing. You're offering the next logical step to someone who already trusts you. Clear offer. Clear price. Clear outcome.</p>
-        </div>
-      </div>
 
-      <!-- Stage 5 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">5</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+          <!-- Stage 4 Panel -->
+          <div class="journey-panel" data-stage="4">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">4</span>
+                  <span class="journey-panel-label">Stage Four</span>
+                </div>
+                <h3 class="journey-panel-title">Convert</h3>
+                <p class="journey-panel-subtitle">You: Ask for the sale<br>They: Become a paying customer</p>
+                <div class="journey-panel-text">
+                  <p>This is the moment of truth. But if you've done the previous stages well, it shouldn't feel like a hard sell.</p>
+                  <p>You're not pushing. You're offering the <strong>next logical step</strong> to someone who already trusts you. Clear offer. Clear price. Clear outcome.</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card yellow">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--accent-yellow-dark)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Sale</h4>
+                  <p class="journey-visual-desc">The natural next step, not a hard sell</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="pcj-stage-detail">
-          <h3>Deliver & Wow</h3>
-          <p class="stage-subtitle">Exceed expectations / They feel they made the right choice</p>
-          <p>Getting the sale isn't the finish line. It's the starting line.</p>
-          <p>This is where you make them feel like they made the best decision of their life. Over-deliver. Exceed expectations. Make them think, "If this is what I get, imagine what else they can do for me."</p>
-        </div>
-      </div>
 
-      <!-- Stage 6 -->
-      <div class="pcj-stage-detailed animate-on-scroll">
-        <div class="pcj-stage-indicator">
-          <div class="pcj-stage-num">6</div>
-          <div class="pcj-stage-labels">
-            <span class="pcj-stage-label">You do:</span>
-            <span class="pcj-stage-label">They experience:</span>
+          <!-- Stage 5 Panel -->
+          <div class="journey-panel" data-stage="5">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">5</span>
+                  <span class="journey-panel-label">Stage Five</span>
+                </div>
+                <h3 class="journey-panel-title">Deliver & Wow</h3>
+                <p class="journey-panel-subtitle">You: Exceed expectations<br>They: Feel they made the right choice</p>
+                <div class="journey-panel-text">
+                  <p>Getting the sale isn't the finish line. It's the starting line.</p>
+                  <p>This is where you make them feel like they made the <strong>best decision of their life</strong>. Over-deliver. Exceed expectations. Make them think, "If this is what I get, imagine what else they can do for me."</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card purple">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--accent-purple-dark)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Delight</h4>
+                  <p class="journey-visual-desc">Make them feel like a genius for choosing you</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 6 Panel -->
+          <div class="journey-panel" data-stage="6">
+            <div class="journey-panel-inner">
+              <div class="journey-panel-content">
+                <div class="journey-panel-stage">
+                  <span class="journey-panel-number">6</span>
+                  <span class="journey-panel-label">Stage Six</span>
+                </div>
+                <h3 class="journey-panel-title">Create Fans</h3>
+                <p class="journey-panel-subtitle">You: Turn customers into referrers<br>They: Tell others about you</p>
+                <div class="journey-panel-text">
+                  <p>Happy customers are willing to recommend you. But they usually won't unless you ask.</p>
+                  <p>This stage is about making it <strong>easy for them to spread the word</strong>. Ask for reviews. Set up referral programmes. Give them something to share. When your customers are actively sending others your way, you've built something sustainable.</p>
+                </div>
+              </div>
+              <div class="journey-visual">
+                <div class="journey-visual-card red">
+                  <div class="journey-visual-icon">
+                    <svg fill="none" stroke="var(--red)" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                    </svg>
+                  </div>
+                  <h4 class="journey-visual-title">Advocacy</h4>
+                  <p class="journey-visual-desc">A system that feeds itself with referrals</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="pcj-stage-detail">
-          <h3>Create Fans</h3>
-          <p class="stage-subtitle">Turn customers into referrers / They tell others about you</p>
-          <p>Happy customers are willing to recommend you. But they usually won't unless you ask.</p>
-          <p>This stage is about making it easy for them to spread the word. Ask for reviews. Set up referral programmes. Give them something to share. When your customers are actively sending others your way, you've built something sustainable. A system that feeds itself.</p>
+
+        <!-- Progress Dots -->
+        <div class="journey-progress" id="journeyProgress">
+          <div class="journey-progress-dot active" data-stage="1"></div>
+          <div class="journey-progress-dot" data-stage="2"></div>
+          <div class="journey-progress-dot" data-stage="3"></div>
+          <div class="journey-progress-dot" data-stage="4"></div>
+          <div class="journey-progress-dot" data-stage="5"></div>
+          <div class="journey-progress-dot" data-stage="6"></div>
         </div>
       </div>
     </div>
@@ -358,8 +476,8 @@
           </div>
         </div>
 
-        <div class="lead-magnet-image animate-on-scroll fade-in-right">
-          <img src="https://placehold.co/350x450/FAF9F6/1a1a1a?text=PCJ+Guide" alt="The Perfect Customer Journey Guide" class="lead-magnet-mockup">
+        <div class="lead-magnet-image animate-on-scroll fade-in-right scale-in">
+          <img src="https://placehold.co/350x450/1a1a1a/FAF9F6?text=The%0APCJ%0AGuide&font=montserrat" alt="The Perfect Customer Journey Guide" class="lead-magnet-mockup">
         </div>
       </div>
     </div>

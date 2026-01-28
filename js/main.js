@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initFAQ();
   initFormHandling();
+  initJourneyInteractive();
 });
 
 /**
@@ -249,6 +250,180 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/**
+ * Interactive Journey Component for PCJ page
+ */
+function initJourneyInteractive() {
+  const tabs = document.querySelectorAll('.journey-tab');
+  const panels = document.querySelectorAll('.journey-panel');
+  const progressDots = document.querySelectorAll('.journey-progress-dot');
+
+  if (tabs.length === 0) return;
+
+  // Function to switch to a specific stage
+  function switchToStage(stageNum) {
+    // Update tabs
+    tabs.forEach(tab => {
+      const tabStage = tab.getAttribute('data-stage');
+      if (tabStage === stageNum) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    // Update panels
+    panels.forEach(panel => {
+      const panelStage = panel.getAttribute('data-stage');
+      if (panelStage === stageNum) {
+        panel.classList.add('active');
+      } else {
+        panel.classList.remove('active');
+      }
+    });
+
+    // Update progress dots
+    progressDots.forEach(dot => {
+      const dotStage = dot.getAttribute('data-stage');
+      if (dotStage === stageNum) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // Tab click handlers
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const stage = tab.getAttribute('data-stage');
+      switchToStage(stage);
+    });
+
+    // Keyboard accessibility
+    tab.setAttribute('tabindex', '0');
+    tab.setAttribute('role', 'tab');
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tab.click();
+      }
+      // Arrow key navigation
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const currentStage = parseInt(tab.getAttribute('data-stage'));
+        const nextStage = currentStage < 6 ? currentStage + 1 : 1;
+        switchToStage(nextStage.toString());
+        document.querySelector(`.journey-tab[data-stage="${nextStage}"]`).focus();
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const currentStage = parseInt(tab.getAttribute('data-stage'));
+        const prevStage = currentStage > 1 ? currentStage - 1 : 6;
+        switchToStage(prevStage.toString());
+        document.querySelector(`.journey-tab[data-stage="${prevStage}"]`).focus();
+      }
+    });
+  });
+
+  // Progress dot click handlers
+  progressDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const stage = dot.getAttribute('data-stage');
+      switchToStage(stage);
+    });
+  });
+
+  // Auto-advance feature (optional - comment out if not desired)
+  let autoAdvanceInterval = null;
+  let isPaused = false;
+
+  function startAutoAdvance() {
+    if (autoAdvanceInterval) return;
+    autoAdvanceInterval = setInterval(() => {
+      if (isPaused) return;
+      const activeTab = document.querySelector('.journey-tab.active');
+      if (activeTab) {
+        const currentStage = parseInt(activeTab.getAttribute('data-stage'));
+        const nextStage = currentStage < 6 ? currentStage + 1 : 1;
+        switchToStage(nextStage.toString());
+      }
+    }, 5000); // Advance every 5 seconds
+  }
+
+  function stopAutoAdvance() {
+    if (autoAdvanceInterval) {
+      clearInterval(autoAdvanceInterval);
+      autoAdvanceInterval = null;
+    }
+  }
+
+  // Pause auto-advance on hover
+  const journeyContainer = document.querySelector('.journey-container');
+  if (journeyContainer) {
+    journeyContainer.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+    journeyContainer.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+  }
+
+  // Start auto-advance when journey section is visible
+  const journeySection = document.querySelector('.journey-section');
+  if (journeySection) {
+    const journeyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startAutoAdvance();
+        } else {
+          stopAutoAdvance();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    journeyObserver.observe(journeySection);
+  }
+
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const panelsContainer = document.getElementById('journeyPanels');
+  if (panelsContainer) {
+    panelsContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    panelsContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) < swipeThreshold) return;
+
+    const activeTab = document.querySelector('.journey-tab.active');
+    if (!activeTab) return;
+
+    const currentStage = parseInt(activeTab.getAttribute('data-stage'));
+
+    if (diff > 0) {
+      // Swipe left - next stage
+      const nextStage = currentStage < 6 ? currentStage + 1 : 1;
+      switchToStage(nextStage.toString());
+    } else {
+      // Swipe right - previous stage
+      const prevStage = currentStage > 1 ? currentStage - 1 : 6;
+      switchToStage(prevStage.toString());
+    }
+  }
+}
 
 /**
  * Add parallax effect to hero section (optional, subtle)
